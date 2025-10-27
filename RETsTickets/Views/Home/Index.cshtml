@@ -21,9 +21,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Location)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FileName)
-            </th>
+     
             <th>
                 @Html.DisplayNameFor(model => model.Owner)
             </th>
@@ -32,6 +30,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th>
+                Image
             </th>
             <th></th>
         </tr>
@@ -50,9 +51,6 @@
                     @Html.DisplayFor(modelItem => item.Location)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FileName)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Owner)
                 </td>
                 <td>
@@ -60,6 +58,11 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CategoryId)
+                </td>
+                <td>
+                    
+                        <img src="@item.FileName" alt="@item.title" style="max-width:100px;max-height:100px;" />
+                    
                 </td>
                 <td>
                     <a asp-controller="Games" asp-action="Edit" asp-route-id="@item.GameId">Edit</a> |

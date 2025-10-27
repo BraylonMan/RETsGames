@@ -1,4 +1,7 @@
-﻿namespace RETsGames.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RETsGames.Models
 {
     public class Game
     {
@@ -13,5 +16,9 @@
         //foeign key
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Photo")]
+        public IFormFile? FormFile { get; set; } //nullable
     }
 }

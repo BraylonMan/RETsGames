@@ -4,51 +4,62 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edit Game</h1>
 
-<h4>Game</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-6">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="GameId" />
-            <div class="form-group">
+            <input type="hidden" asp-for="FileName" />
+
+            <div class="mb-3">
                 <label asp-for="title" class="control-label"></label>
                 <input asp-for="title" class="form-control" />
                 <span asp-validation-for="title" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label asp-for="Location" class="control-label"></label>
                 <input asp-for="Location" class="form-control" />
                 <span asp-validation-for="Location" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="FileName" class="control-label"></label>
-                <input asp-for="FileName" class="form-control" />
-                <span asp-validation-for="FileName" class="text-danger"></span>
+
+            <!-- Show current image if exists -->
+            <div class="mb-3">
+                @if (!string.IsNullOrEmpty(Model.FileName))
+                {
+                    <img src="~/games/@Model.FileName" alt="@Model.title" class="img-fluid mb-2" style="max-width:200px;" />
+                }
             </div>
-            <div class="form-group">
+
+            <!-- File input for new image -->
+            <div class="mb-3">
+                <label class="control-label">Change Image</label>
+                <input type="file" asp-for="FormFile" class="form-control" />
+                <span asp-validation-for="FormFile" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
                 <label asp-for="Owner" class="control-label"></label>
                 <input asp-for="Owner" class="form-control" />
                 <span asp-validation-for="Owner" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label asp-for="CreationDate" class="control-label"></label>
                 <input asp-for="CreationDate" class="form-control" />
                 <span asp-validation-for="CreationDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <input asp-for="CategoryId" class="form-control" />
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

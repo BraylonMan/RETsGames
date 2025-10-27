@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RETsGames.Data;
@@ -6,8 +7,10 @@ using System.Diagnostics;
 
 namespace RETsTickets.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
+
         private readonly RETsGamesContext _context;
         private readonly ILogger<HomeController> _logger;
 
