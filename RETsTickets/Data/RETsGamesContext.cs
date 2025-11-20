@@ -16,5 +16,8 @@ namespace RETsGames.Data
 
         public DbSet<RETsGames.Models.Game> Game { get; set; } = default!;
         public DbSet<RETsGames.Models.Category> Category { get; set; } = default!;
+
+        // Renamed DbSet
+        public DbSet<RETsGames.Models.Purchase> Purchases { get; set; } = default!;
     }
 }

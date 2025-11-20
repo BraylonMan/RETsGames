@@ -54,6 +54,43 @@
             @Model.Category?.CategoryName
         </dd>
     </dl>
+    <h3 class="mt-4">Purchases</h3>
+
+    @if (Model.Purchases != null && Model.Purchases.Count > 0)
+    {
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Buyer</th>
+                    <th>Email</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Phone</th>
+                    <th>Card Last 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model.Purchases)
+                {
+                    <tr>
+                        <td>@p.Buyer</td>
+                        <td>@p.BuyerEmail</td>
+                        <td>@p.Quantity</td>
+                        <td>@p.Price</td>
+                        <td>@p.TotalAmount</td>
+                        <td>@p.Phone</td>
+                        <td>@p.CardLast4</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No purchases recorded for this game.</p>
+    }
+
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.GameId">Edit</a> |

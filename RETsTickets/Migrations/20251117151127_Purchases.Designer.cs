@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RETsGames.Data;
 
@@ -11,9 +12,11 @@ using RETsGames.Data;
 namespace RETsGames.Migrations
 {
     [DbContext(typeof(RETsGamesContext))]
-    partial class RETsGamesContextModelSnapshot : ModelSnapshot
+    [Migration("20251117151127_Purchases")]
+    partial class Purchases
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -50,7 +50,9 @@ namespace RETsGames.Controllers
             }
 
             var game = await _context.Game
+                .Include(g => g.Purchases)   // ⭐ Load all related purchases
                 .FirstOrDefaultAsync(m => m.GameId == id);
+
             if (game == null)
             {
                 return NotFound();

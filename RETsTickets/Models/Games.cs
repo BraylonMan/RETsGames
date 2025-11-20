@@ -20,5 +20,7 @@ namespace RETsGames.Models
         [NotMapped]
         [Display(Name = "Photo")]
         public IFormFile? FormFile { get; set; } //nullable
+
+        public List<Purchase>? Purchases { get; set; }
     }
 }
